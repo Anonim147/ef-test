@@ -30,26 +30,32 @@ namespace EFTasks
         public IConfiguration Configuration { get; }
 
         public void ConfigureServices(IServiceCollection services)
-        {
-            services.AddAutoMapper(typeof(ConfigurationMapper));
+        { 
             var psqlConnection = Configuration.GetConnectionString("PostgreSQLConnectionString");
             services.AddDbContextPool<Context>(options => options.UseNpgsql(psqlConnection));
+
+            services.AddAutoMapper(typeof(ConfigurationMapper));
             services.AddControllers();
             services.AddScoped<ITaskService, TaskService>();
-            services.AddSwaggerGen(c=>
+
+            if (!int.TryParse(Configuration["ActualizePeriodInMinutes"], out int actualizePeriod))
+               actualizePeriod = 2;
+
+            services.AddHostedService(
+                p => new TaskHostedService(p.GetService<ITaskService>(), actualizePeriod));
+
+            services.AddSwaggerGen(c =>
             {
-                c.SwaggerDoc("v1", 
-                    new Microsoft.OpenApi.Models.OpenApiInfo 
-                    { Title = "Task  API", 
-                        Version = "v1" 
+                c.SwaggerDoc("v1",
+                    new Microsoft.OpenApi.Models.OpenApiInfo
+                    {
+                        Title = "Task  API",
+                        Version = "v1"
                     });
                 var fileName = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
                 var filePath = Path.Combine(AppContext.BaseDirectory, fileName);
                 c.IncludeXmlComments(filePath);
             });
-            //services.AddHostedService<TaskHostedService>();
-            services.AddHostedService(
-                p => new TaskHostedService(p.GetService<Context>(), p.GetService<ITaskService>()));
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

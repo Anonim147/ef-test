@@ -11,14 +11,16 @@ namespace WebAPI
     public class TaskHostedService : IHostedService
     {
         private Timer _timer;
+        private int _actualizePeriod;
         private ITaskService _taskService;
-        public TaskHostedService (Context context, ITaskService taskService)
+        public TaskHostedService (ITaskService taskService, int actualizePeriod)
         {
-            this._taskService = taskService;
+            _taskService = taskService;
+            _actualizePeriod = actualizePeriod;
         }
         public Task StartAsync(CancellationToken token)
         {
-            _timer = new Timer(ActualizeTasks, null, TimeSpan.Zero, TimeSpan.FromMinutes(3));
+            _timer = new Timer(ActualizeTasks, null, TimeSpan.Zero, TimeSpan.FromMinutes(_actualizePeriod));
 
             return Task.CompletedTask;
 
