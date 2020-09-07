@@ -1,0 +1,11 @@
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\bin\Debug\netcoreapp3.1\BussinesLogic.deps.json
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\bin\Debug\netcoreapp3.1\BussinesLogic.dll
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\bin\Debug\netcoreapp3.1\BussinesLogic.pdb
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\bin\Debug\netcoreapp3.1\DataLayer.dll
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\bin\Debug\netcoreapp3.1\DataLayer.pdb
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\obj\Debug\netcoreapp3.1\BussinesLogic.csprojAssemblyReference.cache
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\obj\Debug\netcoreapp3.1\BussinesLogic.AssemblyInfoInputs.cache
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\obj\Debug\netcoreapp3.1\BussinesLogic.AssemblyInfo.cs
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\obj\Debug\netcoreapp3.1\BussinesLogic.csproj.CopyComplete
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\obj\Debug\netcoreapp3.1\BussinesLogic.dll
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\BussinesLogic\obj\Debug\netcoreapp3.1\BussinesLogic.pdb

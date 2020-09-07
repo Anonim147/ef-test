@@ -1,0 +1,8 @@
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\DataLayer\bin\Debug\netcoreapp3.1\EFTasks.DAL.deps.json
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\DataLayer\bin\Debug\netcoreapp3.1\EFTasks.DAL.dll
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\DataLayer\bin\Debug\netcoreapp3.1\EFTasks.DAL.pdb
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\DataLayer\obj\Debug\netcoreapp3.1\EFTasks.DAL.csprojAssemblyReference.cache
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\DataLayer\obj\Debug\netcoreapp3.1\EFTasks.DAL.AssemblyInfoInputs.cache
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\DataLayer\obj\Debug\netcoreapp3.1\EFTasks.DAL.AssemblyInfo.cs
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\DataLayer\obj\Debug\netcoreapp3.1\EFTasks.DAL.dll
+C:\Users\Xiaomi\Desktop\Tasks\EFTasks\DataLayer\obj\Debug\netcoreapp3.1\EFTasks.DAL.pdb

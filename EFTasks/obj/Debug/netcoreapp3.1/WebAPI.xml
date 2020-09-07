@@ -1,0 +1,42 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WebAPI</name>
+    </assembly>
+    <members>
+        <member name="M:EFTasks.Controllers.TaskController.GetTasks">
+            <summary>
+            Getting all tasks
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:EFTasks.Controllers.TaskController.GetTask(System.Int32)">
+            <summary>
+            Getting task by id
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFTasks.Controllers.TaskController.CreateTask(EFTasks.BLL.DTO.CustomTaskDTO)">
+            <summary>
+            Creating new task
+            </summary>
+            <param name="task"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFTasks.Controllers.TaskController.UpdateTask(EFTasks.BLL.DTO.CustomTaskDTO)">
+            <summary>
+            Updating task
+            </summary>
+            <param name="task"></param>
+            <returns></returns>
+        </member>
+        <member name="M:EFTasks.Controllers.TaskController.DeleteTask(System.Int32)">
+            <summary>
+            Deleting task
+            </summary>
+            <param name="id"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
