@@ -1,5 +1,6 @@
-﻿using EFTasks.DAL.Abstractions;
-using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+using EFTasks.DAL.Abstractions;
 
 namespace EFTasks.DAL.Models
 {

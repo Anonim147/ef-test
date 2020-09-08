@@ -1,15 +1,16 @@
-﻿using EFTasks.BLL.Abstractions;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq.Expressions;
+
+using AutoMapper;
+
+
+using EFTasks.BLL.Abstractions;
 using EFTasks.BLL.Models;
 using EFTasks.DAL.Abstractions;
 using EFTasks.DAL.Models;
-using System.Linq;
-
-using AutoMapper;
-using System;
-using System.Collections.Generic;
-using System.Text;
 using EFTasks.BLL.DTO;
-using System.Linq.Expressions;
+
 
 namespace EFTasks.BLL.Services
 {
@@ -27,32 +28,61 @@ namespace EFTasks.BLL.Services
         }
         public void AddTask(CustomTaskDTO task)
         {
+            if (task == null)
+                throw new Exception("Entity cannot be null");
+
             _repository.Create(_mapper.Map<CustomTask>(task));   
         }
         public void DeleteTask(int Id)
         {
             if (_repository.Get(Id) == null)
-                throw new Exception("Cannot find");
+                throw new Exception("Task not found");
+
             _repository.Delete(Id);
         }
         public IEnumerable<CustomTaskDTO> GetTasks(Expression<Func<CustomTask, bool>> filter = null, bool isTracking = false)
         {
-            return _mapper.Map<IEnumerable<CustomTaskDTO>>(_repository.Get(filter));
+            var tasks = _mapper.Map<IEnumerable<CustomTaskDTO>>(_repository.Get(filter));
+            foreach (var task in tasks)
+            {
+                CheckActuality(task);
+            }
+            return tasks;
         }
         public CustomTaskDTO GetTask(int Id, bool isTracking = false)
         {
-            return _mapper.Map<CustomTaskDTO>(_repository.Get(Id));
+            var task = _mapper.Map<CustomTaskDTO>(_repository.Get(Id));
+            if (task == null)
+            {
+                throw new Exception("Task not found");
+            }
+            CheckActuality(task);
+            return task;
         }
         public void UpdateTask(CustomTaskDTO task)
         {
-            _repository.Get(task.Id);
+            if (task == null)
+                throw new Exception("Entity cannot be null");
+
+            if (_repository.Get(task.Id) == null)
+                throw new Exception("Task not found");
+
             _repository.Update(_mapper.Map<CustomTask>(task));
-            _unitOfWork.SaveChanges();
+            SaveChanges();
         }
         public void SaveChanges()
         {
             _unitOfWork.SaveChanges();
         }
 
+        public void CheckActuality(CustomTaskDTO task)
+        {
+            if (task!= null 
+                && DateTime.Compare(task.ExpireDate, DateTime.Now) <= 0
+                && task.TaskStatusId != (int)TaskStatusEnum.EXPIRED)
+            {
+                task.TaskStatusId = (int)TaskStatusEnum.EXPIRED;
+            }
+        }
     }
 }

@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EFTasks.DAL.Abstractions
+﻿namespace EFTasks.DAL.Abstractions
 {
     public interface IUnitOfWork
     {
