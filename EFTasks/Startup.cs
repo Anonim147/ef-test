@@ -15,8 +15,7 @@ using EFTasks.DAL;
 using EFTasks.BLL;
 using EFTasks.BLL.Abstractions;
 using EFTasks.BLL.Services;
-
-
+using EFTasks.DAL.Abstractions;
 
 namespace EFTasks
 {
@@ -36,7 +35,8 @@ namespace EFTasks
 
             services.AddAutoMapper(typeof(ConfigurationMapper));
             services.AddControllers();
-            services.AddScoped<ITaskService, TaskService>();
+            services.AddScoped<IUnitOfWork, UnitOfWork>();
+            services.AddScoped<ITaskService, CustomTaskService>();
 
             if (!int.TryParse(Configuration["ActualizePeriodInMinutes"], out int actualizePeriod))
                actualizePeriod = 2;

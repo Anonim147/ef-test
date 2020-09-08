@@ -8,11 +8,12 @@ using EFTasks.DAL;
 using EFTasks.DAL.Models;
 using EFTasks.BLL.DTO;
 using EFTasks.BLL.Abstractions;
-
+using EFTasks.BLL.Models;
+using System.Linq.Expressions;
 
 namespace EFTasks.BLL.Services
 {
-    public class TaskService : ITaskService
+    public class TaskService
     {
         private readonly Context _context;
         private readonly IMapper _mapper;
@@ -75,5 +76,15 @@ namespace EFTasks.BLL.Services
         {
             _context.SaveChanges();
         }
+
+        /*private CustomTaskDTO CheckForExpiring(CustomTaskDTO task)
+        {
+            if (DateTime.Compare(task.ExpireDate, DateTime.Now) <= 0
+                && task.TaskStatusId != (int)TaskStatusEnum.EXPIRED)
+            {
+                task.TaskStatusId = (int)TaskStatusEnum.EXPIRED;
+            }
+            return task;
+        }*/
     }
 }
