@@ -4,7 +4,7 @@ using System.Threading.Tasks;
 using Microsoft.Extensions.Hosting;
 
 using EFTasks.BLL.Abstractions;
-using EFTasks.DAL;
+using EFTasks.BLL.Models;
 
 namespace WebAPI
 {
@@ -39,11 +39,11 @@ namespace WebAPI
             
             var tasks = _taskService.GetTasks(task=>
                 DateTime.Compare(task.ExpireDate, DateTime.Now)<=0 
-                && task.TaskStatusId!=6);
+                && task.TaskStatusId != (int)TaskStatusEnum.EXPIRED);
 
             foreach (var task in tasks)
             {
-                task.TaskStatusId = 6;
+                task.TaskStatusId = (int)TaskStatusEnum.EXPIRED;
                 _taskService.UpdateTask(task);
             }
                 
